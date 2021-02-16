@@ -3,6 +3,7 @@ import Vehicles, { Vehicle } from '../models/vehicles';
 import VehiclesStays from '../models/vehiclesStays';
 import xlsx, { WorkSheet } from 'xlsx';
 import path from 'path';
+import moment from 'moment';
 
 class VehicleStaysControllers {
     constructor() {
@@ -25,10 +26,14 @@ class VehicleStaysControllers {
             const vehicleStay = await newVehicleStays.save();
             await Vehicles.findOneAndUpdate({ plate: request.body.plate }, { vehiclesStays: [ vehicleStay ] }, { new: true });
         }
-        
+
         if (request.body.type == 2) {
             const vehicle = await Vehicles.findOne({ plate: request.body.plate }).populate('vehiclesStays');
-            await VehiclesStays.findOneAndUpdate({ _id: vehicle?.vehiclesStays[0]._id }, { checkOut: request.body.hour }, { new: true });
+            const startTime = moment(vehicle?.vehiclesStays[0].checkIn, "HH:mm");
+            const endTime = moment(request.body.hour, "HH:mm");
+            const duration = moment.duration(startTime.diff(endTime)).asMinutes();
+            const pay = duration * 0.05;
+            await VehiclesStays.findOneAndUpdate({ _id: vehicle?.vehiclesStays[0]._id }, { checkOut: request.body.hour, duration: Math.abs(duration), pay: Math.abs(pay) }, { new: true });
         }
         
         response.redirect('/VehiclesStays');

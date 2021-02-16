@@ -16,6 +16,7 @@ const vehicles_1 = __importDefault(require("../models/vehicles"));
 const vehiclesStays_1 = __importDefault(require("../models/vehiclesStays"));
 const xlsx_1 = __importDefault(require("xlsx"));
 const path_1 = __importDefault(require("path"));
+const moment_1 = __importDefault(require("moment"));
 class VehicleStaysControllers {
     constructor() {
     }
@@ -41,7 +42,11 @@ class VehicleStaysControllers {
             }
             if (request.body.type == 2) {
                 const vehicle = yield vehicles_1.default.findOne({ plate: request.body.plate }).populate('vehiclesStays');
-                yield vehiclesStays_1.default.findOneAndUpdate({ _id: vehicle === null || vehicle === void 0 ? void 0 : vehicle.vehiclesStays[0]._id }, { checkOut: request.body.hour }, { new: true });
+                const startTime = moment_1.default(vehicle === null || vehicle === void 0 ? void 0 : vehicle.vehiclesStays[0].checkIn, "HH:mm");
+                const endTime = moment_1.default(request.body.hour, "HH:mm");
+                const duration = moment_1.default.duration(startTime.diff(endTime)).asMinutes();
+                const pay = duration * 0.05;
+                yield vehiclesStays_1.default.findOneAndUpdate({ _id: vehicle === null || vehicle === void 0 ? void 0 : vehicle.vehiclesStays[0]._id }, { checkOut: request.body.hour, duration: Math.abs(duration), pay: Math.abs(pay) }, { new: true });
             }
             response.redirect('/VehiclesStays');
         });
