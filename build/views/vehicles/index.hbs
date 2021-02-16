@@ -23,11 +23,12 @@
                 <tbody>
                     {{#each vehicles}}
                         <tr>
-                            <td>{{vehicles}}</td>
+                            <td>{{plate}}</td>
                             <td>{{type}}</td>
-                            <td>{{vehiclesStays.checkIn}}</td>
-                            <td>{{vehiclesStays.checkOut}}</td>
-                            <td>{{vehiclesStays.duration}}</td>
+                            {{#each vehiclesStays}}
+                                <td>{{checkIn}}</td>
+                                <td>{{checkOut}}</td>
+                            {{/each}}
                         </tr>
                     {{/each}}
                 </tbody>

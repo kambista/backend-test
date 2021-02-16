@@ -45,19 +45,19 @@ class VehicleControllers {
             yield newVehicleStays.save();
             const newVehicle = new vehicles_1.default({ plate: request.body.plate, type: request.body.type, vehiclesStays: [newVehicleStays] });
             yield newVehicle.save();
-            response.json({ data: newVehicle });
+            response.redirect('/Vehicles');
         });
     }
     put(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const vehicle = yield vehicles_1.default.findOneAndUpdate({ plate: request.params.plate }, request.body, { new: true });
-            response.json(vehicle);
+            response.redirect('/Vehicles');
         });
     }
     delete(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const vehicle = yield vehicles_1.default.findOneAndDelete({ plate: request.params.plate });
-            response.json(vehicle);
+            response.redirect('/Vehicles');
         });
     }
 }

@@ -31,17 +31,18 @@ class VehicleControllers {
         await newVehicleStays.save();
         const newVehicle = new Vehicles({ plate: request.body.plate, type: request.body.type, vehiclesStays: [ newVehicleStays ] });
         await newVehicle.save();
-        response.json({ data: newVehicle });
+        
+        response.redirect('/Vehicles');
     }
 
     public async put(request: Request, response: Response) : Promise<void> {
         const vehicle = await Vehicles.findOneAndUpdate({ plate: request.params.plate }, request.body, { new: true });
-        response.json(vehicle);
+        response.redirect('/Vehicles');
     }
 
     public async delete(request: Request, response: Response) : Promise<void> {
         const vehicle = await Vehicles.findOneAndDelete({ plate: request.params.plate });
-        response.json(vehicle);
+        response.redirect('/Vehicles');
     }
 }
 

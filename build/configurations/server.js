@@ -8,6 +8,8 @@ const express_handlebars_1 = __importDefault(require("express-handlebars"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
+const handlebars_1 = __importDefault(require("handlebars"));
+const allow_prototype_access_1 = require("@handlebars/allow-prototype-access");
 const indexRoutes_1 = __importDefault(require("../routes/indexRoutes"));
 const vehiclesRoutes_1 = __importDefault(require("../routes/vehiclesRoutes"));
 const vehiclesStaysRoutes_1 = __importDefault(require("../routes/vehiclesStaysRoutes"));
@@ -36,7 +38,8 @@ class Server {
             layoutsDir: path_1.default.join(this.app.get('views'), 'layouts'),
             partialsDir: path_1.default.join(this.app.get('views'), 'partials'),
             helpers: path_1.default.join(__dirname, '../helpers/index'),
-            defaultLayout: 'main'
+            defaultLayout: 'main',
+            handlebars: allow_prototype_access_1.allowInsecurePrototypeAccess(handlebars_1.default)
         }));
         this.app.set('view engine', '.hbs');
         // Middlewares

@@ -3,6 +3,8 @@ import expressHandlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import path from 'path';
+import Handlebars from 'handlebars';
+import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 
 import indexRoutes from '../routes/indexRoutes';
 import vehiclesRoutes from '../routes/vehiclesRoutes';
@@ -38,7 +40,8 @@ class Server {
             layoutsDir: path.join(this.app.get('views'), 'layouts'),
             partialsDir: path.join(this.app.get('views'), 'partials'),
             helpers: path.join(__dirname, '../helpers/index'),
-            defaultLayout: 'main'
+            defaultLayout: 'main',
+            handlebars: allowInsecurePrototypeAccess(Handlebars)
         }));
         this.app.set('view engine', '.hbs');
 
