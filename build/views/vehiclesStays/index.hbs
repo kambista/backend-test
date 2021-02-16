@@ -1,0 +1,68 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="/VehiclesStays">Vehicles Stays</a></li>
+    </ol>
+</nav>
+
+<div class="form-row">
+    <div class="form-group col-md-2">
+        <a type="button" class="btn btn-primary btn-block mb-2 ml-3" href="/VehiclesStays/Create">Create</a>
+    </div>
+    
+    <div class="form-group col-md-2">
+        <form action="/api/vehiclesStays/startMonth" method="POST">
+            <button type="submit" class="btn btn-primary btn-block mb-2 ml-3">Start Month</button>
+        </form>
+    </div>
+
+    <div class="form-group col-md-2">
+        <form action="/api/vehiclesStays/paymentsPending" method="POST">
+            <button type="submit" class="btn btn-primary btn-block mb-2 ml-3">Payments Pending</button>
+        </form>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-sm table-striped border-bottom border-left border-right">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" width="50px" style="min-width: 50px"></th>
+                        <th scope="col" width="150px" style="min-width: 150px">Plate</th>
+                        <th scope="col" width="150px" style="min-width: 150px">Type</th>
+                        <th scope="col" width="150px" style="min-width: 150px">CheckIn</th>
+                        <th scope="col" width="150px" style="min-width: 150px">CheckOut</th>
+                        <th scope="col" width="150px" style="min-width: 150px">Duration</th>
+                        <th scope="col" width="150px" style="min-width: 150px">Pay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each vehicles}}
+                        {{#if vehiclesStays}}
+                            <tr>
+                                <td>
+                                    <form action="/api/vehiclesStays/discharge" method="POST">
+                                        <input id="plate" name="plate" value="{{plate}}" type="hidden" />
+                                        <button type="submit" class="btn btn-primary mb-2 ml-3">
+                                            <span class="fas fa-coins"></span>Discharge
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>{{plate}}</td>
+                                <td>{{type}}</td>
+                                {{#each vehiclesStays}}
+                                    <td>{{checkIn}}</td>
+                                    <td>{{checkOut}}</td>
+                                    <td>{{duration}}</td>
+                                    <td>{{pay}}</td>
+                                {{/each}}
+                            </tr>
+                        {{/if}}
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

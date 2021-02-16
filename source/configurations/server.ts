@@ -26,7 +26,8 @@ class Server {
         mongoose.connect(mongouri, {
             useNewUrlParser: true,
             useCreateIndex: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            useFindAndModify: false
         }).then(database => {
             console.log('Database is connected');
         });

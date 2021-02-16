@@ -15,17 +15,15 @@
             </div>
             <div class="form-group col-md-3">
                 <label class="col-form-label text-align-responsive" for="type">Type:</label>
-                <input class="form-control" id="type" name="type" type="text" placeholder="Enter type" maxlength="200" />
+                <select class="form-control" id="type" name="type">
+                    <option value="OFFICIAL">OFFICIAL</option>
+                    <option value="RESIDENTIAL">RESIDENTIAL</option>
+                    <option value="NON-RESIDENTIAL">NON-RESIDENTIAL</option>
+                </select>
             </div>
-            <div class="form-group col-md-3">
-                <label class="col-form-label text-align-responsive" for="checkIn">CheckIn:</label>
-                <input class="form-control" id="checkIn" name="checkIn" type="time" placeholder="Enter checkIn" />
-            </div>
-            <div class="form-group col-md-3">
-                <label class="col-form-label text-align-responsive" for="checkOut">CheckOut:</label>
-                <input class="form-control" id="checkOut" name="checkOut" type="time" placeholder="Enter checkOut" />
-            </div>
-            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        <div class="form-row">
+            <button type="submit" class="btn btn-primary ml-1">Save</button>
         </div>
     </form>
 </div>

@@ -8,8 +8,8 @@ export interface VehicleStay extends mongoose.Document {
 }
 
 const VehiclesStaysSchema = new Schema({
-    checkIn: { type: String, required: true },
-    checkOut: { type: String, required: true },
+    checkIn: { type: String },
+    checkOut: { type: String },
     duration: { type: Number },
     pay: { type: Number }
 });

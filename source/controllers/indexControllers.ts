@@ -5,7 +5,7 @@ class IndexControllers {
     }
 
     public index(request: Request, response: Response) {
-        response.render('dashboard/index', { title: 'Dashboard'});
+        response.render('dashboard/index', { title: 'Dashboard' });
     }
 }
 

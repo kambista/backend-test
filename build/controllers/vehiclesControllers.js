@@ -13,19 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vehicles_1 = __importDefault(require("../models/vehicles"));
-const vehiclesStays_1 = __importDefault(require("../models/vehiclesStays"));
 class VehicleControllers {
     constructor() {
     }
-    index(request, response) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const vehicles = yield vehicles_1.default.find().populate('vehiclesStays');
-            response.render('vehicles/index', { title: 'Vehicles', vehicles });
-        });
-    }
-    create(request, response) {
-        response.render('vehicles/create', { title: 'Vehicles' });
-    }
+    // API
     get(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const vehicles = yield vehicles_1.default.find();
@@ -40,9 +31,7 @@ class VehicleControllers {
     }
     post(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
-            const newVehicleStays = new vehiclesStays_1.default({ checkIn: request.body.checkIn, checkOut: request.body.checkOut });
-            yield newVehicleStays.save();
-            const newVehicle = new vehicles_1.default({ plate: request.body.plate, type: request.body.type, vehiclesStays: [newVehicleStays] });
+            const newVehicle = new vehicles_1.default({ plate: request.body.plate, type: request.body.type });
             yield newVehicle.save();
             response.redirect('/Vehicles');
         });
@@ -58,6 +47,16 @@ class VehicleControllers {
             const vehicle = yield vehicles_1.default.findOneAndDelete({ plate: request.params.plate });
             response.redirect('/Vehicles');
         });
+    }
+    // Views
+    index(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const vehicles = yield vehicles_1.default.find().populate('vehiclesStays');
+            response.render('vehicles/index', { title: 'Vehicles', vehicles });
+        });
+    }
+    create(request, response) {
+        response.render('vehicles/create', { title: 'Vehicles' });
     }
 }
 const vehicleControllers = new VehicleControllers();
