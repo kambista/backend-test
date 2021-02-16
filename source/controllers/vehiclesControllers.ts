@@ -8,7 +8,6 @@ class VehicleControllers {
 
     public async index(request: Request, response: Response) : Promise<void> {
         const vehicles: Vehicle[] = await Vehicles.find().populate('vehiclesStays');
-        console.log(vehicles);
         response.render('vehicles/index', { title: 'Vehicles', vehicles });
     }
 

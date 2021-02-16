@@ -7,6 +7,7 @@ class VehicleStaysControllers {
 
     public async get(request: Request, response: Response) : Promise<void> {
         const vehiclesStays = await VehiclesStays.find();
+        console.log(vehiclesStays);
         response.json(vehiclesStays);
     }
 

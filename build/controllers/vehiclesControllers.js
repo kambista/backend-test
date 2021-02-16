@@ -20,7 +20,6 @@ class VehicleControllers {
     index(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const vehicles = yield vehicles_1.default.find().populate('vehiclesStays');
-            console.log(vehicles);
             response.render('vehicles/index', { title: 'Vehicles', vehicles });
         });
     }

@@ -19,6 +19,7 @@ class VehicleStaysControllers {
     get(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const vehiclesStays = yield vehiclesStays_1.default.find();
+            console.log(vehiclesStays);
             response.json(vehiclesStays);
         });
     }
