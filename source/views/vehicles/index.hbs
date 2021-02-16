@@ -1,0 +1,37 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="/Vehicles">Vehicles</a></li>
+    </ol>
+</nav>
+
+<a type="button" class="btn btn-primary m-2" href="/Vehicles/Create">Create</a>
+
+<div class="form-group row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-sm table-striped border-bottom border-left border-right" id="tblCatalogo" name="tblCatalogo">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" width="150px" style="min-width: 150px">Plate</th>
+                        <th scope="col" width="150px" style="min-width: 150px">Type</th>
+                        <th scope="col" width="150px" style="min-width: 150px">CheckIn</th>
+                        <th scope="col" width="150px" style="min-width: 150px">CheckOut</th>
+                        <th scope="col" width="150px" style="min-width: 150px">Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each vehicles}}
+                        <tr>
+                            <td>{{vehicles}}</td>
+                            <td>{{type}}</td>
+                            <td>{{vehiclesStays.checkIn}}</td>
+                            <td>{{vehiclesStays.checkOut}}</td>
+                            <td>{{vehiclesStays.duration}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

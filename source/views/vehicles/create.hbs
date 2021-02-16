@@ -1,0 +1,31 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="/Vehicles">Vehicles</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="/Vehicles/Create">Create</a></li>
+    </ol>
+</nav>
+
+<div class="card-body">
+    <form action="/api/vehicles" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label class="col-form-label text-align-responsive" for="plate">Plate:</label>
+                <input class="form-control" id="plate" name="plate" type="text" placeholder="Enter plate" maxlength="8" />
+            </div>
+            <div class="form-group col-md-3">
+                <label class="col-form-label text-align-responsive" for="type">Type:</label>
+                <input class="form-control" id="type" name="type" type="text" placeholder="Enter type" maxlength="200" />
+            </div>
+            <div class="form-group col-md-3">
+                <label class="col-form-label text-align-responsive" for="checkIn">CheckIn:</label>
+                <input class="form-control" id="checkIn" name="checkIn" type="time" placeholder="Enter checkIn" />
+            </div>
+            <div class="form-group col-md-3">
+                <label class="col-form-label text-align-responsive" for="checkOut">CheckOut:</label>
+                <input class="form-control" id="checkOut" name="checkOut" type="time" placeholder="Enter checkOut" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
