@@ -1,0 +1,22 @@
+{
+  "type": "postgres",
+  "username": "postgres",
+  "password": "secret",
+  "host": "db",
+  "port": 5432,
+  "database": "test_db",
+  "synchronize": true,
+  "entities": [
+    "dist/entities/*{.ts,.js}"
+  ],
+  "subscribers": [
+    "dist/subscribers/*{.ts,.js}"
+  ],
+  "migrations": [
+    "dist/migrations/*{.ts,.js}"
+  ],
+  "seeds": [
+    "dist/seeds/*{.ts,.js}"
+  ],
+  "logging": true
+}

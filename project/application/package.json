@@ -1,0 +1,33 @@
+{
+  "name": "kambista_back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && dist/index.js",
+    "seed:config": "node ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:run": "node ./node_modules/typeorm-seeding/dist/cli.js seed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "typeorm": "^0.2.31",
+    "typeorm-seeding": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.11",
+    "@types/faker": "^5.1.7",
+    "@types/node": "^14.14.31",
+    "sqlite3": "^5.0.2",
+    "ts-node": "^9.1.1",
+    "tslint": "^5.12.1",
+    "typescript": "^4.1.5"
+  }
+}
