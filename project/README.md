@@ -1,5 +1,25 @@
 # Caso de uso
 
+## Comandos.
+
+### Despliega proyecto.
+
+```
+make up
+```
+
+### Inserta seeders.
+
+```
+make seed
+```
+
+### Elimina contenedores.
+
+```
+make down
+```
+
 ## Caso de uso: registra entrada:
 
 ```

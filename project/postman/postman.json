@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "9a632e14-df98-4512-a422-255a5f7f42b7",
+		"name": "kambista_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear tipo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"No residente\",\n    \"amount\": \"0.5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/types",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"types"
+					]
+				},
+				"description": "Crea un nuevo tipo de automóvil."
+			},
+			"response": []
+		},
+		{
+			"name": "Lista automóviles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/cars",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cars"
+					]
+				},
+				"description": "Obtiene una lista de automóviles."
+			},
+			"response": []
+		},
+		{
+			"name": "Lista tipos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/types",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"types"
+					]
+				},
+				"description": "Obtiene una lista de tipos de automóviles."
+			},
+			"response": []
+		},
+		{
+			"name": "Crea automóvil",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licensePlate\": \"abc124\",\n    \"owner\": \"Juan\",\n    \"type\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/cars",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cars"
+					]
+				},
+				"description": "Crea un nuevo automóvil."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un periodo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/periods/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"periods",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Obtener un periodo por id."
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un periodo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/periods/init_period",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"periods",
+						"init_period"
+					]
+				},
+				"description": "Crea un periodo de forma automática."
+			},
+			"response": []
+		},
+		{
+			"name": "Subir a vehículo oficial",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/cars/:licensePlate/up_oficial",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cars",
+						":licensePlate",
+						"up_oficial"
+					],
+					"variable": [
+						{
+							"key": "licensePlate",
+							"value": "ABC123"
+						}
+					]
+				},
+				"description": "Subir un automóvil a tipo oficial."
+			},
+			"response": []
+		},
+		{
+			"name": "Subir a vehículo residente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/cars/:licensePlate/up_resident",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cars",
+						":licensePlate",
+						"up_resident"
+					],
+					"variable": [
+						{
+							"key": "licensePlate",
+							"value": "ABC129"
+						}
+					]
+				},
+				"description": "Subir un vehículo a tipo residente."
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de estancias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/staies",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"staies"
+					]
+				},
+				"description": "Lista de estacionamientos de periodo actual."
+			},
+			"response": []
+		},
+		{
+			"name": "Registra salida de vehículo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licensePlate\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/staies/register_exit",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"staies",
+						"register_exit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registra ingreso de vehículo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licensePlate\": \"xyz989\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/staies/register_entry",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"staies",
+						"register_entry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pago de residentes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/periods/:id/residents_pay",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"periods",
+						":id",
+						"residents_pay"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Genera lista de lo que tienen que pagar los residentes."
+			},
+			"response": []
+		}
+	]
+}
