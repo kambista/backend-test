@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  web:
+    container_name: parkingmanagementweb
+    restart: always
+    build: .
+    ports:
+      - "40000:30000"
+    volumes:
+      - .:/user/source/application

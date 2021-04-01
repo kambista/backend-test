@@ -1,0 +1,29 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="/Vehicles">Vehicles</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="/Vehicles/Create">Create</a></li>
+    </ol>
+</nav>
+
+<div class="card-body">
+    <form action="/api/vehicles" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label class="col-form-label text-align-responsive" for="plate">Plate:</label>
+                <input class="form-control" id="plate" name="plate" type="text" placeholder="Enter plate" maxlength="8" />
+            </div>
+            <div class="form-group col-md-3">
+                <label class="col-form-label text-align-responsive" for="type">Type:</label>
+                <select class="form-control" id="type" name="type">
+                    <option value="OFFICIAL">OFFICIAL</option>
+                    <option value="RESIDENTIAL">RESIDENTIAL</option>
+                    <option value="NON-RESIDENTIAL">NON-RESIDENTIAL</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <button type="submit" class="btn btn-primary ml-1">Save</button>
+        </div>
+    </form>
+</div>
