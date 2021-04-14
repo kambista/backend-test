@@ -1,4 +1,6 @@
-import { Controller, Delete, Get, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Patch, Post, Put, Param } from '@nestjs/common';
+import { EntradaDto, EstanciaDto, SalidaDto, VehiculoDto } from '../../dto/index'
+
 import {
   ApiBadRequestResponse,
   ApiConflictResponse,
@@ -13,6 +15,39 @@ export class EstacionamientoController {
     private readonly estacionamientoService: EstacionamientoService,
   ) { }
 
+
+  @Post('/salida')
+  postRegistrarSalida(
+    @Body() dto: SalidaDto,
+  ): Promise<string> {
+    return this.estacionamientoService.postRegistrarSalida(dto);
+  }
+  @Post('/entrada')
+  postRegistrarEntrada(
+    @Body() dto: EntradaDto,
+  ): Promise<string> {
+    return this.estacionamientoService.postRegistrarEntrada(dto);
+  }
+  @Post('/vehiculo')
+  postAltaVehiculo(
+    @Body() dto: VehiculoDto,
+  ): Promise<string> {
+    return this.estacionamientoService.postAltaVehiculo(dto);
+  }
+
+  @Get('/estadocuenta/:placa')
+  getEstadoCuentaVehiculo(
+    @Param() params: any,
+  ): Promise<string> {
+    return this.estacionamientoService.getEstadoCuentaVehiculo(params.placa);
+  }
+  @Get('/estadocuenta/:placa/:periodo')
+  getEstadoCuentaVehiculoPeriodo(
+    @Param() params: any,
+  ): Promise<string> {
+    return this.estacionamientoService.getEstadoCuentaVehiculoPeriodo(params);
+  }
+  /*
   @ApiOkResponse({ description: 'ApiOkResponse' })
   @ApiConflictResponse({ description: 'ApiConflictResponse' })
   @ApiNoContentResponse({ description: 'ApiNoContentResponse' })
@@ -37,4 +72,5 @@ export class EstacionamientoController {
   patchDemo(): string {
     return this.estacionamientoService.patchDemo();
   }
+  */
 }
