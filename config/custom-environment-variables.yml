@@ -1,0 +1,22 @@
+#http:
+#  host: "SERVICE_HTTP_HOST"
+#  port: "SERVICE_HTTP_PORT"
+#tcp:
+#  host: "SERVICE_TCP_HOST"
+#  port: "SERVICE_TCP_PORT"
+#client:
+#  aws:
+#    host: "CLIENT_AWS_HOST"
+#    port: "CLIENT_AWS_PORT"
+#  notification:
+#    host: "CLIENT_NOTIFICATION_HOST"
+#    port: "CLIENT_NOTIFICATION_PORT"
+#  enterprisebus:
+#    host: "CLIENT_ENTERPRISEBUS_HOST"
+#    port: "CLIENT_ENTERPRISEBUS_PORT"
+#  aws-refund:
+#    host: 'CLIENT_AWS_REFUND_HOST'
+#    port: 'CLIENT_AWS_REFUND_PORT'
+
+#swagger:
+#  basePath: "SWAGGER_BASEPATHX"

@@ -1,0 +1,11 @@
+{
+    "watch": ["src/**/*"],
+    "env": {
+        "NODE_ENV": "developmentLocal"
+    },
+    "ext": "ts",
+    "exec": "node index.js",
+    "ignore":[
+        "/*.log"
+    ]
+}
