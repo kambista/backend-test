@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  
+  api:
+    restart: on-failure
+    build: ./
+    ports:
+      - 8899:5500
+    environment:
+      APP_PORT: 8899
+      BD_HOST: maria_db
+      BD_PORT: 3306
+      BD_DATABASE: kambista_db
+      BD_USER: root
+      BD_PASS: mariadb
+    depends_on:
+      - maria_db
+    networks:
+      - common-network
+    
+  maria_db:
+    image: "mariadb:10.5.8"
+    hostname: maria_db
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: kambista_db
+      MYSQL_ROOT_PASSWORD: mariadb
+    networks:
+      - common-network
+
+networks:
+    common-network:
+        driver: bridge
