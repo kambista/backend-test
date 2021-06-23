@@ -47,6 +47,17 @@ export class EstacionamientoController {
   ): Promise<string> {
     return this.estacionamientoService.getEstadoCuentaVehiculoPeriodo(params);
   }
+
+  @Get('/test')
+  getTest(
+    @Param() params: any,
+  ): number {
+
+    let x = 10 ;
+    let y = 20 ;
+
+    return x + y;
+  }
   /*
   @ApiOkResponse({ description: 'ApiOkResponse' })
   @ApiConflictResponse({ description: 'ApiConflictResponse' })
