@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/3c06c0c2-b2b9-4a3b-aeba-7974f2efaace/resourceGroups/nodeproject/providers/Microsoft.Web/sites/aprendizaje-automatico",
+    "appService.deploySubpath": "."
+}
